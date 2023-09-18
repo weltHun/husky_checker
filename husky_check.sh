@@ -17,11 +17,11 @@ install_husky() {
   fi
 
   if ! cat .gitignore | grep -q "^node_modules$"; then
-    echo "node_modules" >> .gitignore
+    echo "\nnode_modules" >> .gitignore
   fi
 
   if ! cat .dockerignore | grep -q "^node_modules$"; then
-    echo "node_modules" >> .dockerignore
+    echo "\nnode_modules" >> .dockerignore
   fi
 
   bun install
@@ -41,7 +41,7 @@ extract_issue() {
 }
 
 BRANCH=$(git branch | grep '*' | sed 's/* //')
-if [[ $BRANCH == 'v+d' ]]; then
+if [[ $BRANCH =~ v[0-9]+ ]]; then
   exit 0;
 fi
 extract_issue
@@ -59,7 +59,14 @@ module.exports = {
           2,
           'always',
           [
-              'lower-case'
+            'lower-case',
+            'upper-case',
+            'camel-case',
+            'kebab-case',
+            'pascal-case',
+            'sentence-case',
+            'snake-case',
+            'start-case'.
           ]
       ],
       'subject-empty': [
