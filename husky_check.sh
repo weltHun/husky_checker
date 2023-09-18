@@ -66,7 +66,7 @@ module.exports = {
             'pascal-case',
             'sentence-case',
             'snake-case',
-            'start-case'.
+            'start-case',
           ]
       ],
       'subject-empty': [
