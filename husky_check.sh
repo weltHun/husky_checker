@@ -1,7 +1,5 @@
 #!/bin/sh
 
-url test
-
 install_bun() {
   if ! brew list | grep "^bun$"; then
     brew tap oven-sh/bun
